@@ -45,13 +45,13 @@ def shell(slug,title,description,body):
 <title>{esc(title)} | Tomorrow Library</title><meta name="description" content="{esc(description)}">
 <link rel="canonical" href="{esc(base+('' if slug=='index' else slug+'.html'))}">
 <meta property="og:title" content="{esc(title)} | Tomorrow Library"><meta property="og:description" content="{esc(description)}"><meta property="og:type" content="website">
-<link rel="icon" href="assets/logo.png"><link rel="stylesheet" href="assets/site.css">
+<meta name="theme-color" content="#dce9f8"><link rel="icon" href="assets/wave-mark.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/site.css">
 <script defer src="assets/search-index.js"></script><script defer src="assets/site.js"></script></head>
 <body><a class="skip" href="#main">Skip to content</a>
-<div class="network"><span class="network-label">A TOMORROW CAPITAL RESEARCH PROJECT</span><nav aria-label="Tomorrow projects"><a href="https://tomorrowcapitalresearch.github.io/">Capital Research</a><a href="index.html" aria-current="page">Library</a><a href="https://tomorrowmarkets.github.io/">Markets ↗</a></nav></div>
-<header class="site-head"><a class="brand" href="index.html"><img src="assets/logo.png" alt="" width="34" height="34"><span class="brand-name">Tomorrow Library<small>The quantitative reading room</small></span></a>
-<nav class="head-links" aria-label="Quick links"><a href="code.html">Code</a><a href="data.html">Data</a><a href="competitions.html" class="optional">Competitions</a><button type="button" class="search-open" data-search aria-haspopup="dialog">Search the Library <span class="key">/</span></button><button type="button" class="menu-button" data-menu aria-controls="sidebar" aria-expanded="false">Browse</button></nav></header>
-<div class="layout"><aside class="sidebar" id="sidebar" aria-label="Library navigation"><nav class="sidebar-inner">{nav}</nav></aside><main class="main" id="main">{body}</main></div>
+<div class="network"><span class="network-label">TOMORROW / KNOWLEDGE &amp; METHODS</span><nav aria-label="Tomorrow projects"><a href="https://tomorrowcapitalresearch.github.io/">Capital Research</a><a href="index.html" aria-current="page">Library</a><a href="https://tomorrowmarkets.github.io/">Markets ↗</a></nav></div>
+<header class="site-head"><a class="brand" href="index.html"><img src="assets/wave-mark.svg" alt="" width="34" height="34"><span class="brand-name">Tomorrow Library<small>Quantitative knowledge &amp; methods</small></span></a>
+<nav class="head-links" aria-label="Quick links"><a href="guide.html">Learn</a><a href="code.html">Code</a><a href="data.html">Data</a><a href="papers.html" class="optional">Research</a><a href="competitions.html" class="optional">Compete</a><button type="button" class="search-open" data-search aria-haspopup="dialog">Search the Library <span class="key">/</span></button><button type="button" class="menu-button" data-menu aria-controls="sidebar" aria-expanded="false">Browse</button></nav></header>
+<div class="layout{' home-layout' if slug=='index' else ''}"><aside class="sidebar" id="sidebar" aria-label="Library navigation"><nav class="sidebar-inner">{nav}</nav></aside><main class="main" id="main">{body}</main></div>
 <footer class="footer"><span>Tomorrow Library · Developed by Tomorrow Capital Research</span><nav aria-label="Footer"><a href="about.html">About</a><a href="contribute.html">Contribute</a><a href="https://github.com/tomorrowlibrary/tomorrowlibrary.github.io">GitHub ↗</a><a href="https://tomorrowmarkets.github.io/">Markets ↗</a></nav></footer>
 <dialog id="library-search" class="search-dialog" aria-labelledby="search-title"><div class="search-top"><h2 id="search-title">Find your next reference.</h2><button type="button" class="close-search" data-search-close aria-label="Close search">Close · Esc</button></div><label for="search-query" class="eyebrow">Topics, repositories, code or datasets</label><input id="search-query" type="search" autocomplete="off" placeholder="Try risk, features or Prosperity"><p id="search-status" class="result-count" role="status"></p><div id="search-results" class="search-results"></div></dialog>
 </body></html>'''
@@ -66,8 +66,8 @@ def article_head(category,title,summary,level=None):
 
 repo_count=len(catalogues["repositories"])
 data_count=len(catalogues["datasets"])
-home=f'''<section class="hero"><div><p class="eyebrow">An open library for quantitative research</p><h1>For the curious.<br>For the <em>quantitative.</em></h1><p class="lead">Understand the mathematics. Build the tools. Test the idea. A home for quantitative finance, from first principles to reproducible research.</p><div class="actions"><a class="button" href="guide.html">Find your starting point <span>→</span></a><a class="text-link" href="workbench.html">Run a research example →</a></div><div class="meta"><span>{repo_count} connected repositories</span><span>{data_count} original data files</span><span>Open learning & implementation</span></div></div>
-<aside class="reading-card"><span class="shelf-label">On the workbench / 001</span><h2>One idea.<br>A complete experiment.</h2><p>Load data, build features, fit a baseline, simulate execution and inspect the risk. Follow the whole research loop in Python.</p><a href="workbench.html">Open the research workbench →</a></aside></section>
+home=f'''<section class="hero"><div><p class="eyebrow">Tomorrow Library / An open quantitative resource</p><h1>Quantitative knowledge.<br><em>Built to be used.</em></h1><p class="lead">Understand the mathematics. Build the tools. Test the idea. A home for quantitative finance, from first principles to reproducible research.</p><div class="actions"><a class="button" href="guide.html">Explore the Library <span>→</span></a><a class="text-link" href="workbench.html">Run a research example →</a></div><div class="meta"><span>{repo_count} connected repositories</span><span>{data_count} original data files</span><span>Open learning & implementation</span></div></div>
+<aside class="reading-card"><span class="shelf-label">On the workbench / 001</span><h2>From hypothesis<br>to implementation.</h2><p>Load data, build features, fit a baseline, simulate execution and inspect the risk. Follow the whole research loop in Python.</p><a href="workbench.html">Open the research workbench →</a></aside></section>
 <section class="section"><div class="section-heading"><h2>Explore the shelves.</h2><a href="repositories.html">View the source map ↗</a></div><div class="shelves">'''
 for i,(title,desc,path) in enumerate([
 ("Learn","Mathematics, market structure and the habits of careful research.","guide"),
@@ -170,6 +170,7 @@ for slug in list(intro)+["data"]:
 (ROOT/"robots.txt").write_text("User-agent: *\nAllow: /\nSitemap: "+site["base_url"]+"sitemap.xml\n")
 (ROOT/"sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join('<url><loc>'+esc(site["base_url"]+('' if slug=='index' else slug+'.html'))+'</loc></url>' for slug in pages if slug!="404")+'</urlset>\n')
 (ROOT/"workbench/data-catalogue.json").write_text(json.dumps(datasets,indent=2,ensure_ascii=False)+"\n")
+(ROOT/"downloads").mkdir(exist_ok=True)
 with zipfile.ZipFile(ROOT/"downloads/tomorrow-quant-workbench.zip","w",zipfile.ZIP_DEFLATED) as archive:
     for path in sorted((ROOT/"workbench").rglob("*")):
         if path.is_file() and not any(part in {"__pycache__","results",".venv","data"} for part in path.relative_to(ROOT/"workbench").parts) and path.suffix!=".pyc":
