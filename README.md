@@ -1,3 +1,9 @@
+# Blue design update — October 2026
+
+The homepage now uses a wider company-style introduction and soft-to-mid blue surfaces. Lesson and catalogue pages retain the reading navigation. The shared wave mark, blue links, masthead and typography connect the Library to Capital Research and Markets.
+
+The canonical authoring template is tools/build.py. Its rebuilt pages, search index and workbench download are included; future rebuilds preserve this design. The build now creates the download directory if absent.
+
 # Tomorrow Library
 
 An open quantitative reading room connecting foundations, research procedures, code, data, papers and competition work.
