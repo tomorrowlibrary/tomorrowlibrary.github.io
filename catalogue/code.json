@@ -1,0 +1,164 @@
+[
+  {
+    "title": "Data loading",
+    "category": "Data loading",
+    "description": "Validated OHLCV loading and a Prosperity midpoint adapter.",
+    "status": "Runnable workbench",
+    "detail": "CSV input; explicit timestamp parsing; duplicate and OHLC checks.",
+    "source_url": "workbench/qtlib/data.py",
+    "guide_url": "workbench.html",
+    "tags": [
+      "data",
+      "Python"
+    ],
+    "attribution": "New educational reference implementation"
+  },
+  {
+    "title": "Feature development",
+    "category": "Feature development",
+    "description": "Trailing returns, volatility and standardised price displacement.",
+    "status": "Runnable workbench",
+    "detail": "Rolling features use observations available at each decision time.",
+    "source_url": "workbench/qtlib/features.py",
+    "guide_url": "workbench.html",
+    "tags": [
+      "features",
+      "Python"
+    ],
+    "attribution": "New educational reference implementation"
+  },
+  {
+    "title": "Forecasting baselines",
+    "category": "Forecasting baselines",
+    "description": "Ridge regression with training-only scaling and chronological label separation.",
+    "status": "Runnable workbench",
+    "detail": "A transparent baseline for experiments, with a zero forecast for comparison.",
+    "source_url": "workbench/qtlib/models.py",
+    "guide_url": "workbench.html",
+    "tags": [
+      "models",
+      "Python"
+    ],
+    "attribution": "New educational reference implementation"
+  },
+  {
+    "title": "Portfolio management",
+    "category": "Portfolio management",
+    "description": "Equal weights, inverse-volatility weights and exposure constraints.",
+    "status": "Runnable workbench",
+    "detail": "Long-only weights, cash allowance and per-asset caps.",
+    "source_url": "workbench/qtlib/portfolio.py",
+    "guide_url": "workbench.html",
+    "tags": [
+      "portfolio",
+      "Python"
+    ],
+    "attribution": "New educational reference implementation"
+  },
+  {
+    "title": "Risk management",
+    "category": "Risk management",
+    "description": "Drawdowns, historical VaR / expected shortfall and return summaries.",
+    "status": "Runnable workbench",
+    "detail": "Explicit annualisation and a signed-loss convention.",
+    "source_url": "workbench/qtlib/risk.py",
+    "guide_url": "workbench.html",
+    "tags": [
+      "risk",
+      "Python"
+    ],
+    "attribution": "New educational reference implementation"
+  },
+  {
+    "title": "Backtesting",
+    "category": "Backtesting",
+    "description": "Single-asset account simulation with next-open orders, fees and slippage.",
+    "status": "Runnable workbench",
+    "detail": "Cash, shares, equity and an auditable trade ledger.",
+    "source_url": "workbench/qtlib/backtest.py",
+    "guide_url": "workbench.html",
+    "tags": [
+      "backtest",
+      "Python"
+    ],
+    "attribution": "New educational reference implementation"
+  },
+  {
+    "title": "Vector backtesting examples",
+    "category": "Backtesting",
+    "description": "Historical vector backtester; the file attributes Yves J. Hilpisch / The Python Quants.",
+    "status": "Historical source",
+    "detail": "WTech / TECHNICAL/SMAVectorBacktester.py",
+    "source_url": "https://github.com/MarkBrezina/WTech/blob/36cda96bd016985e6ab88b766ad97d9c69b5aa90/TECHNICAL/SMAVectorBacktester.py",
+    "guide_url": "repositories.html",
+    "tags": [
+      "WTech"
+    ],
+    "attribution": "See the original file and its attribution"
+  },
+  {
+    "title": "Risk and portfolio utilities",
+    "category": "Risk management",
+    "description": "A larger collection of risk and allocation routines; some loaders reference external data files.",
+    "status": "Historical source",
+    "detail": "WTech / TECHNICAL/edge_risk_kit.py",
+    "source_url": "https://github.com/MarkBrezina/WTech/blob/36cda96bd016985e6ab88b766ad97d9c69b5aa90/TECHNICAL/edge_risk_kit.py",
+    "guide_url": "repositories.html",
+    "tags": [
+      "WTech"
+    ],
+    "attribution": "See the original file and its attribution"
+  },
+  {
+    "title": "Prototype account backtester",
+    "category": "Backtesting",
+    "description": "Early account simulation with script-level data downloads. Review accounting and execution assumptions before reuse.",
+    "status": "Historical source",
+    "detail": "TMRW / BACKTEST/Engine.py",
+    "source_url": "https://github.com/MarkBrezina/TMRW/blob/e23b912a4e4d148a2b11d628d38d2887a31d7b07/BACKTEST/Engine.py",
+    "guide_url": "repositories.html",
+    "tags": [
+      "TMRW"
+    ],
+    "attribution": "See the original file and its attribution"
+  },
+  {
+    "title": "Feature utility collection",
+    "category": "Feature development",
+    "description": "Earlier returns, moving-average and related utilities. Historical code rather than the tested workbench.",
+    "status": "Historical source",
+    "detail": "Knowledgebase / 1. Quantitative Finance/Library.py",
+    "source_url": "https://github.com/MarkBrezina/Knowledgebase/blob/041bf27c13eb9a3a25f7cff86df4d984dd377f39/1.%20Quantitative%20Finance/Library.py",
+    "guide_url": "repositories.html",
+    "tags": [
+      "Knowledgebase"
+    ],
+    "attribution": "See the original file and its attribution"
+  },
+  {
+    "title": "Strategy notebooks",
+    "category": "Forecasting baselines",
+    "description": "Explore the original notebook and its assumptions in the source repository.",
+    "status": "Historical source",
+    "detail": "WTech / STRATEGIES/Strategy.ipynb",
+    "source_url": "https://github.com/MarkBrezina/WTech/blob/36cda96bd016985e6ab88b766ad97d9c69b5aa90/STRATEGIES/Strategy.ipynb",
+    "guide_url": "repositories.html",
+    "tags": [
+      "WTech"
+    ],
+    "attribution": "See the original file and its attribution"
+  },
+  {
+    "title": "Portfolio notes",
+    "category": "Portfolio management",
+    "description": "An earlier portfolio-management research note.",
+    "status": "Historical source",
+    "detail": "Knowledgebase / 1. Quantitative Finance/PortfolioManagement/Endavu.md",
+    "source_url": "https://github.com/MarkBrezina/Knowledgebase/blob/041bf27c13eb9a3a25f7cff86df4d984dd377f39/1.%20Quantitative%20Finance/PortfolioManagement/Endavu.md",
+    "guide_url": "repositories.html",
+    "tags": [
+      "Knowledgebase"
+    ],
+    "attribution": "See the original file and its attribution"
+  }
+]

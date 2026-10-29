@@ -1,0 +1,156 @@
+[
+  {
+    "slug": "guide",
+    "title": "Choose a route into quant.",
+    "category": "Start here",
+    "summary": "A curriculum that connects the mathematics to research, code, data and execution.",
+    "level": "Foundation"
+  },
+  {
+    "slug": "research-process",
+    "title": "From hypothesis to evidence.",
+    "category": "Research methods",
+    "summary": "A repeatable workflow for asking useful questions and testing them without contaminating the answer.",
+    "level": "Intermediate"
+  },
+  {
+    "slug": "mathematics",
+    "title": "The mathematical foundations.",
+    "category": "Foundations",
+    "summary": "Probability, estimation, linear algebra, optimisation and time series, organised around what you need to do.",
+    "level": "Foundation"
+  },
+  {
+    "slug": "stochastic-calculus",
+    "title": "Stochastic calculus & volatility.",
+    "category": "Foundations",
+    "summary": "Brownian motion, Itô's formula, model assumptions and the geometric Brownian motion example.",
+    "level": "Intermediate"
+  },
+  {
+    "slug": "data-guide",
+    "title": "Know what the data contains.",
+    "category": "Data methods",
+    "summary": "Provenance, timestamps, cleaning, point-in-time information and the limits of price-only data.",
+    "level": "Foundation"
+  },
+  {
+    "slug": "backtesting",
+    "title": "Make the accounting explicit.",
+    "category": "Research methods",
+    "summary": "A backtest is a model of decisions, execution and wealth, with assumptions that can be inspected.",
+    "level": "Intermediate"
+  },
+  {
+    "slug": "microstructure",
+    "title": "Read the order book.",
+    "category": "Market structure",
+    "summary": "Bids, asks, depth, trades, inventory and the difference between a displayed opportunity and a realised fill.",
+    "level": "Foundation"
+  },
+  {
+    "slug": "portfolio-risk",
+    "title": "From signals to a portfolio.",
+    "category": "Portfolio & risk",
+    "summary": "Weights, covariance, drawdowns, tail losses and the constraints that connect a forecast to an allocation.",
+    "level": "Intermediate"
+  },
+  {
+    "slug": "machine-learning",
+    "title": "Models that earn their complexity.",
+    "category": "Models & features",
+    "summary": "Start from transparent baselines, align the target with the decision and evaluate chronologically.",
+    "level": "Intermediate"
+  },
+  {
+    "slug": "research-engineering",
+    "title": "Make the result reproducible.",
+    "category": "Research engineering",
+    "summary": "A small system of data contracts, experiment records, tests and clear interfaces.",
+    "level": "Intermediate"
+  },
+  {
+    "slug": "workbench",
+    "title": "A complete first research run.",
+    "category": "Code & implementation",
+    "summary": "Download a small Python workbench and follow the path from data checks to a costed backtest.",
+    "level": "Practical"
+  },
+  {
+    "slug": "markets-lab",
+    "title": "Read it. Trade it. Explain it.",
+    "category": "Tomorrow Markets lab",
+    "summary": "Connect Library concepts to concrete experiments in Tomorrow Markets.",
+    "level": "Practical"
+  },
+  {
+    "slug": "competition-guide",
+    "title": "How to compete in a quant challenge.",
+    "category": "Competition handbook",
+    "summary": "From the first valid submission to reproducible research, reliable execution and an honest post-mortem.",
+    "level": "Practical"
+  },
+  {
+    "slug": "publish-data",
+    "title": "Publish a dataset students can use.",
+    "category": "Data publishing",
+    "summary": "Add provenance, a schema, reuse terms and a real download to the data catalogue.",
+    "level": "Practical"
+  },
+  {
+    "slug": "contribute",
+    "title": "Add something worth reusing.",
+    "category": "Contribute",
+    "summary": "Extend the Library with an edited lesson, inspectable module, dataset or reproducible research note.",
+    "level": "Foundation"
+  },
+  {
+    "slug": "about",
+    "title": "An open home for quantitative work.",
+    "category": "About the Library",
+    "summary": "Tomorrow Library connects learning, research, implementation and practice under one navigable archive.",
+    "level": "Foundation"
+  },
+  {
+    "slug": "banking",
+    "title": "Banking & credit risk.",
+    "category": "Learning pathway",
+    "summary": "Default, loss severity, exposure and model validation.",
+    "level": "Foundation"
+  },
+  {
+    "slug": "actuarial",
+    "title": "Actuarial science.",
+    "category": "Learning pathway",
+    "summary": "Pricing, reserving, survival and the uncertainty of liabilities.",
+    "level": "Foundation"
+  },
+  {
+    "slug": "algo",
+    "title": "Algorithmic trading.",
+    "category": "Learning pathway",
+    "summary": "Research signals, convert them to positions and understand execution.",
+    "level": "Foundation"
+  },
+  {
+    "slug": "sys-invest",
+    "title": "Systematic investing.",
+    "category": "Learning pathway",
+    "summary": "Allocation rules, portfolio construction and long-horizon evaluation.",
+    "level": "Foundation"
+  },
+  {
+    "slug": "fund-invest",
+    "title": "Quantamental investing.",
+    "category": "Learning pathway",
+    "summary": "Connect an economic hypothesis to a measurable, point-in-time rule.",
+    "level": "Foundation"
+  },
+  {
+    "slug": "risk",
+    "title": "Risk management.",
+    "category": "Learning pathway",
+    "summary": "Measure exposures, model adverse outcomes and build operational controls.",
+    "level": "Foundation"
+  }
+]

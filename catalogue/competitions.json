@@ -1,0 +1,66 @@
+[
+  {
+    "title": "IMC Prosperity",
+    "category": "Market making",
+    "description": "Algorithmic and manual trading challenges in a simulated market. Pair the guide with prior-edition data and analyses.",
+    "source_url": "https://prosperity.imc.com/",
+    "local_url": "competition-guide.html",
+    "status": "Check organiser"
+  },
+  {
+    "title": "Kaggle competitions",
+    "category": "Prediction",
+    "description": "Find data-science competitions and study completed financial forecasting challenges. Eligibility, rules and availability depend on the event.",
+    "source_url": "https://www.kaggle.com/competitions",
+    "status": "Check organiser"
+  },
+  {
+    "title": "Numerai",
+    "category": "Prediction",
+    "description": "A financial modelling tournament with public documentation and example scripts.",
+    "source_url": "https://numer.ai/",
+    "status": "Check organiser"
+  },
+  {
+    "title": "WorldQuant International Quant Championship",
+    "category": "Research",
+    "description": "A systematic research competition. Use the official page for current eligibility, access and dates.",
+    "source_url": "https://www.worldquant.com/brain/iqc/",
+    "status": "Check organiser"
+  },
+  {
+    "title": "Optiver Ready Trader Go",
+    "category": "Market making",
+    "description": "A historical exchange-simulation challenge. Prior editions and public solutions can be used as practice material.",
+    "source_url": "https://readytradergo.optiver.com/",
+    "status": "Historical challenge"
+  },
+  {
+    "title": "Citadel Securities Terminal",
+    "category": "Trading games",
+    "description": "Competition information and events from the organiser.",
+    "source_url": "https://www.citadelsecurities.com/careers/programs-and-events/terminal/",
+    "status": "Check organiser"
+  },
+  {
+    "title": "CUATS Challenge",
+    "category": "Research",
+    "description": "A research and algorithmic-trading competition from Cambridge University Algorithmic Trading Society.",
+    "source_url": "https://www.cuats.co.uk/challenge2026/",
+    "status": "Check organiser"
+  },
+  {
+    "title": "Crunch / ADIA Lab structural-break challenge",
+    "category": "Prediction",
+    "description": "An archived research challenge from the original directory; useful for studying time-series change detection.",
+    "source_url": "https://www.adialab.ae/adia-lab-x-crunch-the-structural-break-challenge-2026",
+    "status": "Historical challenge"
+  },
+  {
+    "title": "KN Hack research challenge",
+    "category": "Research",
+    "description": "An archived investment research challenge from the original directory.",
+    "source_url": "https://www.kaxanuk.mx/kn-hack",
+    "status": "Historical challenge"
+  }
+]

@@ -1,0 +1,247 @@
+[
+  {
+    "title": "Books & reading lists",
+    "category": "Reading",
+    "description": "Browse the Knowledgebase's reading bibliography and follow the original publishers or authors.",
+    "source_url": "https://github.com/MarkBrezina/Knowledgebase/blob/041bf27c13eb9a3a25f7cff86df4d984dd377f39/resource/Books.md",
+    "status": "Source collection"
+  },
+  {
+    "title": "Code & tool references",
+    "category": "Code",
+    "description": "The original programming and quantitative-tool collection.",
+    "source_url": "https://github.com/MarkBrezina/Knowledgebase/blob/041bf27c13eb9a3a25f7cff86df4d984dd377f39/resource/Code.md",
+    "status": "Source collection"
+  },
+  {
+    "title": "Lectures & videos",
+    "category": "Lectures",
+    "description": "The original video collection.",
+    "source_url": "https://github.com/MarkBrezina/Knowledgebase/blob/041bf27c13eb9a3a25f7cff86df4d984dd377f39/resource/Videos.md",
+    "status": "Source collection"
+  },
+  {
+    "title": "Websites & communities",
+    "category": "Communities",
+    "description": "The original website and forum directory.",
+    "source_url": "https://github.com/MarkBrezina/Knowledgebase/blob/041bf27c13eb9a3a25f7cff86df4d984dd377f39/resource/Websites.md",
+    "status": "Source collection"
+  },
+  {
+    "title": "Prosperity learning resources",
+    "category": "Competitions",
+    "description": "A larger archive of public competition resources and solution links.",
+    "source_url": "https://github.com/MarkBrezina/Ctrl-Alt-DefeatTheMarket/blob/79108e330ef5e1cbec4489932184bce82f0644ee/RESOURCES.md",
+    "status": "Source collection"
+  },
+  {
+    "title": "Market-making notebook",
+    "category": "Code",
+    "description": "Earlier collected references and notes from KB.",
+    "source_url": "https://github.com/MarkBrezina/KB/blob/7a14dc5bec2861be5b9625c1f75d2ef52ca0df40/Quantitative%20Finance/Market%20making/README.md",
+    "status": "Historical notes"
+  },
+  {
+    "title": "mirkovicdev",
+    "category": "Recovered directory",
+    "description": "Instagram",
+    "source_url": "https://www.instagram.com/mirkovicdev/",
+    "status": "Original directory"
+  },
+  {
+    "title": "quant_research_decoded",
+    "category": "Recovered directory",
+    "description": "Instagram",
+    "source_url": "https://www.instagram.com/quant_research_decoded/",
+    "status": "Original directory"
+  },
+  {
+    "title": "macroglide",
+    "category": "Recovered directory",
+    "description": "Instagram",
+    "source_url": "https://www.instagram.com/macroglide/",
+    "status": "Original directory"
+  },
+  {
+    "title": "International Association for Quantitative Finance",
+    "category": "Recovered directory",
+    "description": "LinkedIn groups",
+    "source_url": "https://www.linkedin.com/groups/1087767/",
+    "status": "Original directory"
+  },
+  {
+    "title": "London Quant Group",
+    "category": "Recovered directory",
+    "description": "LinkedIn groups",
+    "source_url": "https://www.linkedin.com/groups/2722737/",
+    "status": "Original directory"
+  },
+  {
+    "title": "Applied Quantitative Investment Management",
+    "category": "Recovered directory",
+    "description": "LinkedIn groups",
+    "source_url": "https://www.linkedin.com/groups/12877102/",
+    "status": "Original directory"
+  },
+  {
+    "title": "Machine Learning and Quantitative Finance",
+    "category": "Recovered directory",
+    "description": "LinkedIn groups",
+    "source_url": "https://www.linkedin.com/groups/8826850/",
+    "status": "Original directory"
+  },
+  {
+    "title": "Quant Finance / Quantitative Finance",
+    "category": "Recovered directory",
+    "description": "LinkedIn groups",
+    "source_url": "https://www.linkedin.com/groups/2206132/",
+    "status": "Original directory"
+  },
+  {
+    "title": "Paul Bilokon",
+    "category": "Recovered directory",
+    "description": "Strongly recommended people",
+    "source_url": "https://www.linkedin.com/in/bilokon/",
+    "status": "Original directory"
+  },
+  {
+    "title": "Peter Cotton",
+    "category": "Recovered directory",
+    "description": "Strongly recommended people",
+    "source_url": "https://www.linkedin.com/in/petercotton/",
+    "status": "Original directory"
+  },
+  {
+    "title": "Anton Vorobets",
+    "category": "Recovered directory",
+    "description": "Strongly recommended people",
+    "source_url": "https://www.linkedin.com/in/antonvorobets/",
+    "status": "Original directory"
+  },
+  {
+    "title": "Alex Gerko",
+    "category": "Recovered directory",
+    "description": "Strongly recommended people",
+    "source_url": "https://www.linkedin.com/in/gerko/",
+    "status": "Original directory"
+  },
+  {
+    "title": "Jean-Philippe Bouchaud",
+    "category": "Recovered directory",
+    "description": "Strongly recommended people",
+    "source_url": "https://www.linkedin.com/in/jean-philippe-bouchaud-bb08a15/",
+    "status": "Original directory"
+  },
+  {
+    "title": "Marcos López de Prado",
+    "category": "Recovered directory",
+    "description": "Strongly recommended people",
+    "source_url": "https://www.linkedin.com/in/lopezdeprado/",
+    "status": "Original directory"
+  },
+  {
+    "title": "Gappy",
+    "category": "Recovered directory",
+    "description": "Strongly recommended people",
+    "source_url": "https://www.linkedin.com/in/gappy/",
+    "status": "Original directory"
+  },
+  {
+    "title": "Alejandro Rodriguez Dominguez",
+    "category": "Recovered directory",
+    "description": "Strongly recommended people",
+    "source_url": "https://www.linkedin.com/in/alejandro-rodriguez-dominguez-66b48015b/",
+    "status": "Original directory"
+  },
+  {
+    "title": "Johannes Meyer",
+    "category": "Recovered directory",
+    "description": "Strongly recommended people",
+    "source_url": "https://www.linkedin.com/in/johannes-meyer-young-and-calculated/",
+    "status": "Original directory"
+  },
+  {
+    "title": "Wilmott",
+    "category": "Recovered directory",
+    "description": "Forums",
+    "source_url": "https://wilmott.com/",
+    "status": "Original directory"
+  },
+  {
+    "title": "QuantNet Forum",
+    "category": "Recovered directory",
+    "description": "Forums",
+    "source_url": "https://quantnet.com/forum/",
+    "status": "Original directory"
+  },
+  {
+    "title": "Dimitri Bianco",
+    "category": "Recovered directory",
+    "description": "YouTube channels",
+    "source_url": "https://www.youtube.com/@DimitriBianco",
+    "status": "Original directory"
+  },
+  {
+    "title": "Oxford MCF",
+    "category": "Recovered directory",
+    "description": "YouTube channels",
+    "source_url": "https://www.youtube.com/@OxfordMCF",
+    "status": "Original directory"
+  },
+  {
+    "title": "G-Research Quant Finance",
+    "category": "Recovered directory",
+    "description": "YouTube channels",
+    "source_url": "https://www.youtube.com/@GResearchquantfinance",
+    "status": "Original directory"
+  },
+  {
+    "title": "Paul Sweeting",
+    "category": "Recovered directory",
+    "description": "YouTube channels",
+    "source_url": "https://www.youtube.com/@PaulSweeting",
+    "status": "Original directory"
+  },
+  {
+    "title": "QuantInsti",
+    "category": "Recovered directory",
+    "description": "YouTube channels",
+    "source_url": "https://www.youtube.com/@quantinsti",
+    "status": "Original directory"
+  },
+  {
+    "title": "Oxford Mathematics",
+    "category": "Recovered directory",
+    "description": "YouTube channels",
+    "source_url": "https://www.youtube.com/@OxfordMathematics",
+    "status": "Original directory"
+  },
+  {
+    "title": "The Bright Side of Mathematics",
+    "category": "Recovered directory",
+    "description": "YouTube channels",
+    "source_url": "https://www.youtube.com/@brightsideofmaths",
+    "status": "Original directory"
+  },
+  {
+    "title": "Oxford-Man Institute",
+    "category": "Recovered directory",
+    "description": "YouTube channels",
+    "source_url": "https://www.youtube.com/@Oxford-Man-Institute",
+    "status": "Original directory"
+  },
+  {
+    "title": "London Mathematical Society",
+    "category": "Recovered directory",
+    "description": "YouTube channels",
+    "source_url": "https://www.youtube.com/@LondonMathematicalSociety",
+    "status": "Original directory"
+  },
+  {
+    "title": "Economics Explained",
+    "category": "Recovered directory",
+    "description": "YouTube channels",
+    "source_url": "https://www.youtube.com/@EconomicsExplained",
+    "status": "Original directory"
+  }
+]

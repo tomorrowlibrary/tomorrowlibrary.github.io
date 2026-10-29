@@ -1,0 +1,86 @@
+[
+  {
+    "name": "Ctrl-Alt-DefeatTheMarket",
+    "title": "Competition guides",
+    "description": "An unofficial Prosperity guide, round analyses, prior-edition research and original competition data files.",
+    "status": "Learning collection",
+    "tags": [
+      "Competitions",
+      "Microstructure",
+      "Data"
+    ],
+    "url": "https://github.com/MarkBrezina/Ctrl-Alt-DefeatTheMarket",
+    "commit": "79108e330ef5e1cbec4489932184bce82f0644ee",
+    "snapshot_date": "2026-10-29"
+  },
+  {
+    "name": "Knowledgebase",
+    "title": "Foundations & references",
+    "description": "Mathematics, statistics, insurance, quantitative finance, programming and reading lists.",
+    "status": "Mixed notes",
+    "tags": [
+      "Foundations",
+      "Portfolio",
+      "Resources"
+    ],
+    "url": "https://github.com/MarkBrezina/Knowledgebase",
+    "commit": "041bf27c13eb9a3a25f7cff86df4d984dd377f39",
+    "snapshot_date": "2026-10-29"
+  },
+  {
+    "name": "Foundational-Quantitative-Research",
+    "title": "Frameworks & open questions",
+    "description": "Market graphs, interacting agents, layered valuation and explicitly provisional conjectures. Several implementation directories are scaffolding.",
+    "status": "Research draft",
+    "tags": [
+      "Research",
+      "Theory",
+      "Market structure"
+    ],
+    "url": "https://github.com/MarkBrezina/Foundational-Quantitative-Research",
+    "commit": "88695a95dd2bb766a68b42dcb123cc3eca56af47",
+    "snapshot_date": "2026-10-29"
+  },
+  {
+    "name": "TMRW",
+    "title": "Research system architecture",
+    "description": "A developing trading-system design with analytics, data acquisition, a prototype backtester and legacy market-data exports.",
+    "status": "Prototype",
+    "tags": [
+      "Systems",
+      "Data",
+      "Backtesting"
+    ],
+    "url": "https://github.com/MarkBrezina/TMRW",
+    "commit": "e23b912a4e4d148a2b11d628d38d2887a31d7b07",
+    "snapshot_date": "2026-10-29"
+  },
+  {
+    "name": "WTech",
+    "title": "Trading & risk examples",
+    "description": "Strategy notebooks, vector backtesters and risk utilities. Some files carry third-party attribution; dependencies and data paths vary.",
+    "status": "Historical examples",
+    "tags": [
+      "Code",
+      "Risk",
+      "Backtesting"
+    ],
+    "url": "https://github.com/MarkBrezina/WTech",
+    "commit": "36cda96bd016985e6ab88b766ad97d9c69b5aa90",
+    "snapshot_date": "2026-10-29"
+  },
+  {
+    "name": "KB",
+    "title": "Research notebook archive",
+    "description": "Earlier market-making, strategy and energy-market notes. Hypotheses remain working notes rather than established findings.",
+    "status": "Historical notes",
+    "tags": [
+      "Research",
+      "Microstructure",
+      "Strategies"
+    ],
+    "url": "https://github.com/MarkBrezina/KB",
+    "commit": "7a14dc5bec2861be5b9625c1f75d2ef52ca0df40",
+    "snapshot_date": "2026-10-29"
+  }
+]

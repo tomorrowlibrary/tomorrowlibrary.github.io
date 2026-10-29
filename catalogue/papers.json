@@ -1,0 +1,61 @@
+[
+  {
+    "title": "Path switching",
+    "category": "Tomorrow research",
+    "description": "A provisional problem statement about switching between trading paths.",
+    "status": "Research draft",
+    "source_url": "https://github.com/MarkBrezina/Foundational-Quantitative-Research/blob/88695a95dd2bb766a68b42dcb123cc3eca56af47/docs/conjectures/conjecture_1_path_switching.md",
+    "pdf_url": "https://github.com/MarkBrezina/Foundational-Quantitative-Research/blob/88695a95dd2bb766a68b42dcb123cc3eca56af47/conjectures/Conjecture%201%20-%20Path%20switching.pdf"
+  },
+  {
+    "title": "Central pricing",
+    "category": "Tomorrow research",
+    "description": "An open modelling question within the layered valuation framework.",
+    "status": "Research draft",
+    "source_url": "https://github.com/MarkBrezina/Foundational-Quantitative-Research/blob/88695a95dd2bb766a68b42dcb123cc3eca56af47/docs/conjectures/conjecture_2_central_pricing.md",
+    "pdf_url": "https://github.com/MarkBrezina/Foundational-Quantitative-Research/blob/88695a95dd2bb766a68b42dcb123cc3eca56af47/conjectures/Conjecture%202%20-%20Central%20Pricing.pdf"
+  },
+  {
+    "title": "Stealth execution",
+    "category": "Tomorrow research",
+    "description": "A draft formulation of execution distributions and information exposure.",
+    "status": "Research draft",
+    "source_url": "https://github.com/MarkBrezina/Foundational-Quantitative-Research/blob/88695a95dd2bb766a68b42dcb123cc3eca56af47/docs/conjectures/conjecture_3_stealth_execution.md",
+    "pdf_url": "https://github.com/MarkBrezina/Foundational-Quantitative-Research/blob/88695a95dd2bb766a68b42dcb123cc3eca56af47/conjectures/Conjecture%203%20-%20Stealth-optimal%20Dist.pdf"
+  },
+  {
+    "title": "Full-model optimality",
+    "category": "Tomorrow research",
+    "description": "A provisional theoretical statement; see the definitions and limits in the source.",
+    "status": "Research draft",
+    "source_url": "https://github.com/MarkBrezina/Foundational-Quantitative-Research/blob/88695a95dd2bb766a68b42dcb123cc3eca56af47/docs/conjectures/conjecture_4_full_model_optimality.md"
+  },
+  {
+    "title": "Multi-layer optimisation dynamics",
+    "category": "Tomorrow research",
+    "description": "A draft research direction on agents, interactions and valuation layers.",
+    "status": "Research draft",
+    "source_url": "https://github.com/MarkBrezina/Foundational-Quantitative-Research/blob/88695a95dd2bb766a68b42dcb123cc3eca56af47/docs/conjectures/conjecture_5_the_multi_layer_optimisation_dynamic.md"
+  },
+  {
+    "title": "Framework overview",
+    "category": "Tomorrow research",
+    "description": "Definitions and motivation for the framework-first research programme.",
+    "status": "Working framework",
+    "source_url": "https://github.com/MarkBrezina/Foundational-Quantitative-Research/blob/88695a95dd2bb766a68b42dcb123cc3eca56af47/docs/overview.md"
+  },
+  {
+    "title": "Mean Field Games with Partial Information for Algorithmic Trading",
+    "category": "External papers",
+    "description": "An external paper linked in the original competition resources. Read the authors' abstract and assumptions at the source.",
+    "status": "External paper",
+    "source_url": "https://arxiv.org/abs/1803.04094"
+  },
+  {
+    "title": "Mean Field Game of High-Frequency Anticipatory Trading",
+    "category": "External papers",
+    "description": "An external research reference retained from the original resource list.",
+    "status": "External paper",
+    "source_url": "https://arxiv.org/abs/2404.18200"
+  }
+]

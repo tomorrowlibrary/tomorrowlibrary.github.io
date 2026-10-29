@@ -1,0 +1,85 @@
+[
+  {
+    "title": "Getting started with Prosperity",
+    "category": "Tomorrow guides",
+    "description": "The author's practical setup guide. Interface details are specific to its edition.",
+    "status": "Author's guide",
+    "source_url": "https://github.com/MarkBrezina/Ctrl-Alt-DefeatTheMarket/blob/79108e330ef5e1cbec4489932184bce82f0644ee/GETTING_STARTED.md"
+  },
+  {
+    "title": "Round 1 analysis",
+    "category": "Tomorrow guides",
+    "description": "An account of the author's approach, observations and implementation mistakes.",
+    "status": "Author's round analysis",
+    "source_url": "https://github.com/MarkBrezina/Ctrl-Alt-DefeatTheMarket/blob/79108e330ef5e1cbec4489932184bce82f0644ee/Round%201/README.md"
+  },
+  {
+    "title": "Round 2 analysis",
+    "category": "Tomorrow guides",
+    "description": "The author's published round notes and strategy reasoning.",
+    "status": "Author's round analysis",
+    "source_url": "https://github.com/MarkBrezina/Ctrl-Alt-DefeatTheMarket/blob/79108e330ef5e1cbec4489932184bce82f0644ee/Round%202/README.md"
+  },
+  {
+    "title": "Round 3 analysis",
+    "category": "Tomorrow guides",
+    "description": "The author's published notes on the round and its products.",
+    "status": "Author's round analysis",
+    "source_url": "https://github.com/MarkBrezina/Ctrl-Alt-DefeatTheMarket/blob/79108e330ef5e1cbec4489932184bce82f0644ee/Round%203/README.md"
+  },
+  {
+    "title": "Across previous Prosperity editions",
+    "category": "Tomorrow guides",
+    "description": "A comparative research overview of product designs and approaches across editions.",
+    "status": "Author's synthesis",
+    "source_url": "https://github.com/MarkBrezina/Ctrl-Alt-DefeatTheMarket/blob/79108e330ef5e1cbec4489932184bce82f0644ee/research/README.md"
+  },
+  {
+    "title": "Optiver realised volatility — nearest neighbours",
+    "category": "Winning solutions",
+    "description": "Published first-place solution by the competitor on Kaggle.",
+    "status": "1st place · Kaggle",
+    "source_url": "https://www.kaggle.com/competitions/optiver-realized-volatility-prediction/discussion/274970",
+    "verified": "2026-10-29"
+  },
+  {
+    "title": "Optiver trading at the close",
+    "category": "Winning solutions",
+    "description": "Published first-place solution by the competitor on Kaggle.",
+    "status": "1st place · Kaggle",
+    "source_url": "https://www.kaggle.com/competitions/optiver-trading-at-the-close/discussion/487446",
+    "verified": "2026-10-29"
+  },
+  {
+    "title": "Linear Utility — Prosperity 2",
+    "category": "Podium & public solutions",
+    "description": "The team's research, algorithms and post-competition write-up.",
+    "status": "2nd overall · IMC 2",
+    "source_url": "https://github.com/ericcccsliu/imc-prosperity-2",
+    "verified": "2026-10-29"
+  },
+  {
+    "title": "Frankfurt Hedgehogs — Prosperity 3",
+    "category": "Podium & public solutions",
+    "description": "A team write-up and public source repository.",
+    "status": "2nd overall · IMC 3",
+    "source_url": "https://github.com/TimoDiehm/imc-prosperity-3",
+    "verified": "2026-10-29"
+  },
+  {
+    "title": "CMU Physics — Prosperity 3",
+    "category": "Podium & public solutions",
+    "description": "A public write-up with research and code from each round.",
+    "status": "7th overall · IMC 3",
+    "source_url": "https://github.com/chrispyroberts/imc-prosperity-3",
+    "verified": "2026-10-29"
+  },
+  {
+    "title": "Jasper van Merle — Prosperity 2",
+    "category": "Podium & public solutions",
+    "description": "A public submission repository with links to the author's backtester, visualiser and tools.",
+    "status": "9th overall · IMC 2",
+    "source_url": "https://github.com/jmerle/imc-prosperity-2",
+    "verified": "2026-10-29"
+  }
+]
