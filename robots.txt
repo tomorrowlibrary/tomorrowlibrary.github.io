@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://tomorrowlibrary.github.io/sitemap.xml
+
+Sitemap: https://tomorrowcapitalresearch.github.io/sitemap.xml

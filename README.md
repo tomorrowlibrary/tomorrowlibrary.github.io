@@ -1,72 +1,105 @@
-# Blue design update — October 2026
+# Tomorrow Capital Research
 
-The homepage now uses a wider company-style introduction and soft-to-mid blue surfaces. Lesson and catalogue pages retain the reading navigation. The shared wave mark, blue links, masthead and typography connect the Library to Capital Research and Markets.
+A complete static rebuild of the company website: a compact introduction, a clear explanation of the approach, selected work, a directory to public research, and contact channels.
 
-The canonical authoring template is tools/build.py. Its rebuilt pages, search index and workbench download are included; future rebuilds preserve this design. The build now creates the download directory if absent.
+This is the **company repository**. Tomorrow Markets and Tomorrow Library are separate websites; neither repository is modified by this update.
 
-# Tomorrow Library
+## Implement this update
 
-An open quantitative reading room connecting foundations, research procedures, code, data, papers and competition work.
+The generated website is already included. No build tool, framework, installation, API key or backend is needed to publish it.
 
-Published destination: https://tomorrowlibrary.github.io/
+1. Extract the package.
+2. Copy the **contents inside the package** into the root of `TomorrowCapitalResearch/TomorrowCapitalResearch.github.io`, merging folders and replacing files with matching names. `index.html` must be at the repository root, with `assets/` beside it. Do not upload the outer ZIP folder as a new subdirectory.
+3. Include the new `about.html`, `work.html`, `src/`, `scripts/`, and `docs/` files. Keep the existing images and video in `assets/`; the new design does not load them, but they remain available.
+4. Commit the update to the branch used by GitHub Pages. For the existing setup, retain `main` and the root publication folder. No Pages settings change is required by this rebuild.
+5. After Pages publishes, check the home page, navigation, research directory and contact links.
 
-Connected projects: https://tomorrowcapitalresearch.github.io/ and https://tomorrowmarkets.github.io/
+The compact update ZIP contains all changed and new repository files. The full repository ZIP also includes the existing media assets. Both contain the complete new website; the compact package is easiest to upload over the existing repository.
 
-## Publish
+**Publication status:** the connected GitHub account has read-only access to this repository. These packages have been prepared and checked locally; no GitHub commit, pull request or production deployment has been made.
 
-The root index.html and other generated pages are ready for GitHub Pages. Publish the repository root. No visitor-side Python or backend is required.
+## Preview locally
 
-For local inspection:
+From the extracted package's root, run:
 
-    python -m http.server 8000
+```sh
+python -m http.server 8000
+```
 
-Open http://localhost:8000/ in your browser.
+Open `http://localhost:8000/`. The generated pages also use relative assets and can be opened directly, though an HTTP preview gives the most representative behaviour, especially for redirects and the 404 page.
 
-## Edit and rebuild
+## Structure
 
-Edited lesson bodies live in content/. Their titles, summaries and categories live in catalogue/lessons.json.
+| Page | Purpose |
+| --- | --- |
+| `index.html` | Short company introduction and directory |
+| `about.html` | Purpose, scope and principles |
+| `approach.html` | Research process and chronological evaluation schematic |
+| `work.html` | Tomorrow Markets, Tomorrow Library and systems development |
+| `research.html` | Direct links to verified Library sections and the earlier archive |
+| `contact.html` | Existing LinkedIn and GitHub channels |
+| `Conjectures.html` | Preserved provisional research text with a clear archive notice |
+| `privacy.html`, `terms.html`, `disclosures.html` | Supporting website information |
+| `404.html` | Recovery page for missing URLs |
 
-The remaining JSON catalogues are repositories.json, code.json, datasets.json, papers.json, competitions.json, solutions.json and resources.json. site.json contains site-wide metadata.
+Existing URLs continue to work:
 
-After an edit:
+| Earlier URL | Destination |
+| --- | --- |
+| `who-we-are.html` | `about.html` |
+| `systems.html` | `work.html#systems` |
+| `platforms.html` | `work.html#platforms` |
+| `Conjectures.html#…` | Preserved page and original section IDs |
 
-    python tools/build.py
-    python tools/check_site.py
+## Edit and iterate
 
-Commit the edited source files and the regenerated HTML, search index, sitemap and workbench ZIP. The build uses the Python standard library. Site styles and interactions are in assets/site.css and assets/site.js.
+The website is published from the ready-made HTML files at the root. The optional Python scripts keep shared content consistent across pages.
 
-### Add a lesson
+| Change | Source |
+| --- | --- |
+| Colours, layout, spacing and typography | `assets/site.css` |
+| Page copy and sections | `src/pages/*.html` |
+| Navigation, public URLs, page titles and descriptions | `src/site.json` |
+| Shared page shell | `src/templates/page.html` |
+| Header, footer, logo and geometric illustrations | `scripts/build_site.py` |
+| Navigation behaviour | `assets/site.js` |
+| Archive presentation | `assets/archive.css` |
+| Social preview artwork | `assets/social-card.svg` and the pre-exported PNG |
 
-Create content/your-topic.html with the article's body (no page wrapper) and add a corresponding slug, title, category, summary and level to catalogue/lessons.json. Rebuild. The new page is included in global search and the sitemap; add an explicit link from a learning route or relevant lesson.
+After editing source content, run:
 
-### Add code
+```sh
+python scripts/build_site.py
+python scripts/check_site.py
+```
 
-Add an entry to catalogue/code.json with title, category, description, status, source_url and guide_url. Document dependencies, input units, timing assumptions, original attribution and tests. Place a local example under workbench/ only if it belongs to that maintained reference package.
+Commit the regenerated root HTML, shared fragments, sitemap and brand assets alongside the source changes. Direct edits to generated files work, but a later rebuild will overwrite them. Prefer editing `src/` when using the generator.
 
-### Add a dataset
+The builder uses the Python standard library only. `--preview` optionally stages the active public files in an ignored `dist/` directory. The checked-in PNG is already exported; exporting a revised social card is a separate image-export step, not a prerequisite for building the pages.
 
-Use the on-site publish-data.html guide. An active entry requires a real source_url and download_url, a unique id, title, category and actual licence/reuse terms. Include size_bytes, schema, time_coverage, quality notes, source version and sha256 when verified. A Git-hosted original can additionally record source_commit and blob_sha.
+## Design direction
 
-The initial catalogue records original competition and legacy-export files. It does not mirror the larger historical BTC/ETH/XRP collections. Existing data entries have no invented row counts, coverage or reuse permissions.
+Paper white, deep navy and a clear medium blue. Editorial serif headings, small sans-serif body text, thin rules and generous space. No stock photography or ornamental animation is needed to explain the work.
 
-### Add research
+The logo combines discrete steps with a compounding curve. The home illustration expands the same idea. Neither represents a return profile or financial forecast.
 
-Use catalogue/papers.json. Include source_url, status, a concise description and pdf_url if a shareable PDF exists. Preserve author attribution and distinguish working papers, conjectures and tested empirical results.
+See `docs/design-direction.md` for the palette, logo logic and next design decisions, and `docs/library-migration.md` for the research handoff.
 
-### Add a competition or solution
+## Research and platform boundaries
 
-Use competitions.json or solutions.json. Record the official organiser link and edition. A solution should identify whether it is the actual submitted code, a later improvement, a guide or a post-mortem. Only publish a placement when supported by its source. Do not list a podium placement as first place.
+The company presents its purpose, method and selected systems. The research directory sends readers to existing Library pages for papers, process, code, data and engineering. Conjectures are retained until a real Library destination is published; no content has been silently removed or redirected to a nonexistent article.
 
-## Source collections
+Work lists two public platforms and separately labels WTech as research and development. It does not invent commercial services, clients, staff numbers, investment results or product availability. Contact uses the existing public channels rather than an invented mailbox or an unconnected form.
 
-The six source repositories are catalogued at their inspected revisions. This is a curated snapshot: it does not automatically publish every later file from those repositories.
+Tomorrow Markets retains its current design. The Library's blue redesign is a separate implementation; this package establishes its role and links without changing its content or features.
 
-The source collections contain historical notes, drafts, third-party references and prototypes. New workbench code is licensed separately under workbench/LICENSE; that licence does not cover external datasets, books, papers or other authors' code.
+## Validation
 
-The original Quant Archive foreword is preserved on foreword.html. The recovery ZIP in the parent delivery package contains the untouched original source.
+- Static checks pass for all 11 complete pages, local links and assets, anchor targets, metadata, sitemap and compatibility routes.
+- Browser layout checks cover all 11 pages in 320, 390, 768 and 1440 pixel-wide frames. No horizontal document overflow was detected. These are responsive browser checks, not physical-device testing.
+- Desktop composition was inspected for the introduction, About, platform presentations and evaluation schematic.
+- Mobile menu opening, Escape dismissal, navigation without JavaScript and all three compatibility redirects were checked.
+- The original conjectures main content is preserved exactly in `src/pages/conjectures.html` and reproduced in the archive page.
+- Existing binary assets are retained unchanged. Images in `previews/` document the previous design and are not previews of this revision.
 
-## Workbench
-
-Download downloads/tomorrow-quant-workbench.zip or open workbench/README.md. It uses numpy/pandas and runs locally. The CLI account simulator is single asset; portfolio helpers are separate building blocks.
-
-The deterministic installation fixture is synthetic. The competition adapter uses midpoint proxies, not exchange fills. Read the package's timing, cost and modelling assumptions before interpreting a result.
+Source baseline: `1f140a2669529830423ffa6b405e8c56407f0fcc` on `main`, retrieved 29 October 2026.
