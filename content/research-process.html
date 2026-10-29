@@ -1,0 +1,19 @@
+<h2>Write the claim before running the test</h2>
+<p>“Large moves reverse” is a research direction. A testable claim specifies the market, observation frequency, event threshold, conditioning information, response horizon and benchmark. Record these choices before opening the evaluation sample.</p>
+<p>For example: after a one-bar move exceeding a fixed threshold, estimate the subsequent return distribution over a specified horizon, conditional on a trailing volume measure. The threshold and horizon belong to the experimental design. They are not evidence that the effect exists.</p>
+<h2>Separate three questions</h2><ol><li><strong>Measurement:</strong> is the effect present in the observations, compared with an appropriate control?</li><li><strong>Prediction:</strong> does information available at time t improve an out-of-sample forecast?</li><li><strong>Implementation:</strong> can an executable decision retain value after costs, risk and constraints?</li></ol>
+<p>A statistically detectable pattern need not be economically useful. A successful competition strategy need not transfer to a live market with different fills and participants.</p>
+<h2>Design the comparison</h2><p>Start with simple controls: a constant forecast, a historical mean fitted on training data, a no-trade policy, or an appropriate buy-and-hold allocation. Use chronological splits. If labels overlap across the split, remove training examples whose outcome windows reach into the next segment.</p>
+<p>Report effect sizes, uncertainty, sample counts and sensitivity to reasonable design changes. Serially dependent observations need dependence-aware uncertainty estimates, such as suitable block resampling. A large grid search changes the meaning of the best-looking result; retain the full experiment history and assess selection effects.</p>
+<h2>Keep a research record</h2><pre><code>question:
+data_version:
+information_available_at_decision:
+target_and_horizon:
+training_validation_test_periods:
+baseline:
+cost_and_execution_model:
+parameters_tried:
+result_and_uncertainty:
+failure_cases:
+next_falsification_test:</code></pre>
+<p>Preserve the code version, data fingerprint and configuration. A result is ready to share when another person can reproduce it and understand what could make the conclusion wrong. See <a href="research-engineering.html">research engineering</a> for a practical project layout.</p>

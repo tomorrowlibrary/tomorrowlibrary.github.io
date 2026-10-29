@@ -1,0 +1,14 @@
+<h2>Keep the original observations</h2><p>Preserve raw files separately from cleaned tables and derived features. Record the source, collection method, instrument identifiers, observation frequency, timezone, adjustment convention and known gaps. A checksum identifies the exact bytes used in an experiment.</p>
+<h2>Validate before modelling</h2><ul><li>Check unique instrument/time keys, ordering, duplicates and missing observations.</li><li>Check price units, positive prices, non-negative recorded volume and consistent OHLC ranges.</li><li>Inspect market calendars, timestamp units and whether a timestamp marks an interval's start or end.</li><li>For equities, account for splits, dividends, delistings and membership changes.</li><li>For fundamentals, preserve publication and revision times as well as the economic period.</li></ul>
+<h2>Different data answers different questions</h2><p>Daily adjusted prices support portfolio-return experiments. OHLCV bars support some signal studies, but cannot reconstruct the historical bid/ask queue. Order-book snapshots show displayed depth at sampled instants; trade records show executions. Neither is a complete record of every hidden order or cancellation.</p>
+<p>Competition files are edition-specific. The <a href="data.html">data catalogue</a> distinguishes prices, trades and observations. TMRW's legacy options exports contain serialised tables and need normalisation before they can be treated as ordinary OHLCV.</p>
+<h2>A reproducible folder structure</h2><pre><code>data/
+  raw/          original files, unchanged
+  processed/    validated tables with a documented schema
+  features/     derived values and their availability times
+experiments/
+  configuration.json
+  data-checks.json
+  report.md</code></pre>
+<h2>Use the workbench adapter carefully</h2><p>The OHLCV loader rejects duplicate or unordered timestamps rather than silently fixing them. The Prosperity adapter extracts one product's midpoints and uses an ordinal observation index. It is suitable for a price-series experiment; evaluating an actual competition bot requires an edition-compatible exchange backtester.</p>
+<p>When publishing data for students, include the information needed to interpret it as well as permission to reuse it. The <a href="publish-data.html">publication guide</a> explains the catalogue fields and download options.</p>

@@ -1,0 +1,13 @@
+<h2>The immediate exchange</h2><p>The best bid is the highest displayed buying price; the best ask is the lowest displayed selling price. Their difference is the quoted spread. A marketable buy consumes asks. A marketable sell consumes bids. Larger orders may reach additional price levels.</p>
+<p>The midpoint is a useful reference, but it is not an executable promise. Resting depth can change before your order arrives, and a limit order may wait behind other orders or never fill.</p>
+<h2>Try the spread arithmetic</h2><p>This exercise holds the book fixed. Buy one unit at the ask and immediately sell it at the bid. Apply the same fee in basis points to each executed notional.</p>
+<div class="lab" data-spread-lab><div class="lab-grid">
+<label>Best bid<input id="lab-bid" type="number" min="0.0001" step=".01" value="99.98"></label>
+<label>Best ask<input id="lab-ask" type="number" min="0.0001" step=".01" value="100.02"></label>
+<label>Fee per side, bps<input id="lab-fee" type="number" min="0" step=".1" value="5"></label>
+</div><output aria-live="polite">Spread: 0.0400 · Immediate round-trip loss: 0.1400%</output></div>
+<p>One basis point is 0.01%. This calculation excludes additional slippage, market impact and changes in the book.</p>
+<h2>Displayed imbalance is a feature</h2><div class="math">I = (Q<sub>bid</sub> − Q<sub>ask</sub>) / (Q<sub>bid</sub> + Q<sub>ask</sub>)</div>
+<p>Define which levels contribute to Q and how prices are sampled. Imbalance is a description of visible resting size; its predictive usefulness needs a separate out-of-sample test. Executed order flow and displayed depth are different measurements.</p>
+<h2>Inventory changes the decision</h2><p>A market maker's quote depends on fair value, position, risk and execution probability. Capturing a quoted spread is not automatic profit: the filled side can be followed by an adverse price move. Inspect inventory paths and fill-conditioned outcomes as well as PnL.</p>
+<h2>A practical experiment</h2><p>In <a href="markets-lab.html">Tomorrow Markets</a>, compare a small market order with a non-marketable limit order. Record arrival time, fill time, execution price, inventory and the subsequent price path. Repeat under the same settings and record the data source. The experiment teaches mechanics; it does not validate an edge in a different market.</p>

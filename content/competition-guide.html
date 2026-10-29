@@ -1,0 +1,16 @@
+<h2>1 · Understand the contract</h2><p>Read the organiser's rules, interface, scoring, position limits, runtime limits and eligibility requirements. Confirm which observations are available at each decision. A high-scoring idea is irrelevant if it produces invalid orders or depends on information the interface does not supply.</p>
+<h2>2 · Get a valid baseline running</h2><p>Build the smallest valid submission and run it through the official examples. Log inputs, decisions, inventory and PnL. Preserve the last known working version before adding strategy logic.</p>
+<h2>3 · Study the market design</h2><p>Inspect prices, spreads, depth, trades, product relationships and any conversion mechanics. Form a specific hypothesis for each product. A fixed-value product, a basket and an option may require different models. Historical patterns from earlier editions are starting questions, not future answers.</p>
+<h2>4 · Split the team by responsibility</h2><p>Assign research, execution/risk and engineering responsibilities. Use a shared experiment log and an agreed order interface. Test combined inventory and exposure: individually sensible components can conflict when they trade together.</p>
+<h2>5 · Compare with discipline</h2><p>Use the same data windows and execution assumptions. Keep the parameters tried, analyse per-product contributions and inspect adverse cases. Use edition-compatible backtesting tools; midpoint return studies and interactive simulations answer narrower questions.</p>
+<h2>6 · Protect the submission</h2><div class="checklist">
+<label><input type="checkbox">The correct file and version are selected.</label>
+<label><input type="checkbox">Imports and runtime stay within the current rules.</label>
+<label><input type="checkbox">Orders respect product limits and combined inventory.</label>
+<label><input type="checkbox">Missing books and edge cases produce valid behaviour.</label>
+<label><input type="checkbox">A known working fallback is saved.</label>
+<label><input type="checkbox">The final submitted source and result are archived together.</label>
+</div>
+<h2>7 · Write the post-mortem</h2><p>Keep the submitted code, round-specific data, configurations and official result. Explain each hypothesis, what the local tests predicted and what the official evaluation showed. Distinguish your actual submission from later improvements.</p>
+<h2>Study solutions actively</h2><p>The <a href="solutions.html">solutions collection</a> separates Tomorrow's guides and analyses from external winning and public submissions. For each solution, identify the market mechanism, available information, execution assumptions and validation weaknesses. Reimplement one component before comparing with the original code.</p>
+<p>The author's <a href="https://github.com/MarkBrezina/Ctrl-Alt-DefeatTheMarket">Ctrl-Alt-DefeatTheMarket</a> collection is the main Prosperity companion. The <a href="competitions.html">competition directory</a> points to organisers; dates and entry conditions should be checked there.</p>

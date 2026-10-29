@@ -1,0 +1,20 @@
+<div class="actions"><a class="button" href="downloads/tomorrow-quant-workbench.zip" download>Download the workbench <span>↓</span></a><a class="text-link" href="code.html">Browse individual modules →</a></div>
+<h2>What the package does</h2><p>The workbench loads validated CSV bars, calculates trailing features, fits an expanding-window ridge baseline, turns a forecast or simple momentum rule into exposure, and runs a single-asset cash/share account. It saves features, forecasts, equity, a trade ledger and a configuration report.</p>
+<p>Portfolio helpers supply equal and inverse-volatility weights, caps and lagged portfolio returns. They are separate components: the command-line account engine is single asset.</p>
+<h2>Install and check it</h2><p>Extract the ZIP, open a terminal in its folder and use Python 3.10 or newer.</p><pre><code>python -m venv .venv
+# Windows:
+.venv\Scripts\activate
+# macOS / Linux:
+# source .venv/bin/activate
+python -m pip install -r requirements.txt
+python -m unittest discover -s tests -v</code></pre>
+<h2>Run the installation fixture</h2><pre><code>python make_synthetic_fixture.py
+python run_research.py --csv data/SYNTHETIC-fixture.csv --annualisation 252</code></pre>
+<p>The fixture is generated synthetic data. Its returns are an installation check. For real daily observations, 252 may be appropriate; for minute bars or event observations, choose and document a different annualisation.</p>
+<h2>Use one of the competition files</h2><p>Download a price file from the <a href="data.html">data catalogue</a>, then select a product present in that file. The included downloader can list files or retrieve a selected collection; it verifies recorded byte sizes and source hashes:</p><pre><code>python download_data.py --list
+python download_data.py --collection "Prosperity 2" --contains round_0 --out data</code></pre>
+<p>For a Prosperity 2 file containing AMETHYSTS, substitute the downloaded price file's path:</p><pre><code>python run_research.py --csv prices.csv --schema prosperity --product AMETHYSTS --annualisation 1 --out results/proxy</code></pre>
+<p>This adapter uses the observed midpoint as a price proxy. It does not reproduce the competition exchange, fills, position limits or queues. An actual submission needs an edition-compatible exchange backtester.</p>
+<h2>Understand the outputs</h2><ul><li><strong>features.csv:</strong> trailing feature values, including warm-up gaps.</li><li><strong>forecasts.csv:</strong> out-of-sample ridge forecasts.</li><li><strong>equity.csv and trades.csv:</strong> the account and execution record.</li><li><strong>report.json:</strong> the configuration, checksum, costs and metrics.</li></ul>
+<p>The evaluation begins flat after 150 observations. Close-t decisions trade at open t+1; remaining positions close at the final close. Fees and adverse slippage apply to orders. The example excludes funding, borrow constraints, market impact and queue behaviour.</p>
+<p>See the included README for module interfaces and additional limits. The tests check timing, account arithmetic, costs, short exposure, future-data independence, training-label separation and input validation.</p>

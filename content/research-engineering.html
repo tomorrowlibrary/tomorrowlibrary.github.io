@@ -1,0 +1,14 @@
+<h2>Separate the responsibilities</h2><p>Data ingestion should identify and preserve observations. Feature code should describe what is available at a decision time. Models produce forecasts. Portfolio logic converts forecasts into target exposure. Execution models convert orders into fills and account changes. Reports explain the resulting evidence.</p>
+<p>Keeping these interfaces separate makes it possible to replace a model without changing accounting, or compare execution assumptions without rebuilding the dataset.</p>
+<h2>Record the experiment</h2><pre><code>experiment/
+  configuration.json
+  data-fingerprint.json
+  features.csv
+  forecasts.csv
+  trades.csv
+  equity.csv
+  report.md</code></pre>
+<p>Save the source commit, data checksum, time period, instrument universe, features, target, model settings, costs and software versions. Label simulated fixtures explicitly so installation checks cannot be mistaken for empirical market findings.</p>
+<h2>Test the failure modes</h2><p>Useful research tests challenge the model's assumptions. Alter future rows and ensure earlier features stay unchanged. Reconstruct a flat-price round trip by hand. Introduce a duplicate timestamp and ensure it is rejected. Confirm that training labels stop before evaluation begins.</p>
+<h2>Read the existing systems in context</h2><p><a href="repositories.html">TMRW</a> contains the earlier system architecture and prototype modules; WTech contains strategy and backtesting examples. These are source collections with different maturity levels. The new <a href="workbench.html">workbench</a> gives readers a small consistent path through the same responsibilities.</p>
+<h2>Share an inspectable contribution</h2><p>A useful code contribution includes an interface, units, timing assumptions, a minimal example, tests and limits. A research contribution includes a question, data provenance, a baseline and a reproducible result. Use <a href="contribute.html">the contribution guide</a> to add either type to the Library.</p>

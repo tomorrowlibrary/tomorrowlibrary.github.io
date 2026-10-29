@@ -1,0 +1,22 @@
+<h2>Prepare the collection</h2><p>Choose a bounded release: for example one instrument, frequency and time range. Keep the original files, then produce a documented clean format if useful. Include instruments, timestamp convention, units, adjustment rules, missing periods and a small usage example.</p>
+<p>Only publish data you can share. Record the actual source terms; the licence of your Python code does not determine the rights to market data or third-party competition files.</p>
+<h2>Host the bytes</h2><p>Use a download location appropriate to the collection's size: a GitHub release asset, a public dataset repository or object storage. Keep the website focused on the catalogue and documentation. Existing catalogue entries point to their original public repository files rather than making new copies.</p>
+<h2>Add an entry</h2><p>In this repository, edit <code>catalogue/datasets.json</code> and run <code>python tools/build.py</code>. Commit the changed catalogue and generated pages. Each active entry needs an actual source and download URL.</p><pre><code>{
+  "id": "unique-dataset-id",
+  "title": "Instrument, frequency and period",
+  "category": "Market data",
+  "kind": "OHLCV",
+  "source_repo": "Source or publisher",
+  "source_path": "Release or collection identifier",
+  "source_url": "https://your-publisher.example/dataset",
+  "download_url": "https://your-publisher.example/file.csv",
+  "size_bytes": 123456,
+  "licence": "Actual dataset reuse terms",
+  "quality": "Checks performed and remaining gaps",
+  "schema": "timestamp, open, high, low, close, volume",
+  "time_coverage": "Actual start and end",
+  "row_count": 1000
+}</code></pre>
+<p>The example fields illustrate the schema; they are not a published dataset. Replace every example value with verified metadata. Add a SHA-256 checksum when available and retain versioned source URLs.</p>
+<h2>Verify the student experience</h2><ol><li>Open the download in a signed-out browser.</li><li>Confirm the file type, byte size and checksum.</li><li>Run the example in a clean environment.</li><li>Check that the stated dates and columns match the file.</li><li>Explain allowed reuse and how to cite the source.</li></ol>
+<p>The historical BTC/ETH/XRP collections discussed outside these public repositories have not been uploaded here. Add their files and source metadata through this same process when ready.</p>

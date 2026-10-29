@@ -1,0 +1,17 @@
+<h2>A model of a price process</h2><p>The geometric Brownian motion specification in the original Library starter is a useful mathematical example:</p>
+<div class="math" role="math" aria-label="d S t equals mu S t d t plus sigma S t d W t">dS<sub>t</sub> = μS<sub>t</sub>dt + σS<sub>t</sub>dW<sub>t</sub></div>
+<p>Here W is Brownian motion, μ is the drift and σ is the diffusion scale. Constant coefficients imply strong restrictions. The model does not itself capture stochastic volatility, order-book dynamics or discontinuous jumps.</p>
+<h2>Itô's correction matters</h2><p>Applying Itô's formula to log S gives a drift correction of −σ²/2. For constant coefficients:</p>
+<div class="math" role="math">S<sub>t</sub> = S<sub>0</sub> exp[(μ − σ²/2)t + σW<sub>t</sub>]</div>
+<p>The expected level and the expected log change differ. This is one reason to keep arithmetic returns, log returns and compounded wealth separate in a research implementation.</p>
+<h2>Physical and pricing measures</h2><p>A model for observed returns and a risk-neutral model for derivative pricing answer different questions. Under the standard no-dividend Black–Scholes assumptions, risk-neutral dynamics use the risk-free rate in the drift. A fitted historical drift should not simply replace it in the pricing formula.</p>
+<h2>The original code example</h2><p>The starter's d₁ expression can be retained as a small, guarded C++ function for positive volatility and time to maturity:</p><pre><code>#include &lt;cmath&gt;
+#include &lt;stdexcept&gt;
+
+double d1(double S, double K, double r, double sigma, double T) {
+    if (S &lt;= 0 || K &lt;= 0 || sigma &lt;= 0 || T &lt;= 0)
+        throw std::invalid_argument("Positive S, K, sigma and T required");
+    return (std::log(S / K) + (r + 0.5 * sigma * sigma) * T)
+         / (sigma * std::sqrt(T));
+}</code></pre>
+<p>Expiry and zero-volatility cases need their own limiting treatment. An options-pricing project should also test units, discounting, put-call relationships, numerical stability and the difference between implied and realised volatility.</p>

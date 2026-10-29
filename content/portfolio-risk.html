@@ -1,0 +1,15 @@
+<h2>Define the unit of exposure</h2><p>A signal, an order and a portfolio weight are different objects. Specify whether a number is a quantity, currency notional, fraction of equity, volatility target or risk contribution. Keep cash and leverage explicit.</p>
+<p>A basic long-only allocation has non-negative weights summing to at most one; the remainder is cash. The workbench includes equal weights, inverse-volatility weights and per-asset caps. Its cap helper leaves excess allocation in cash rather than silently redistributing it.</p>
+<h2>Risk depends on joint behaviour</h2><p>Volatility weighting is a useful baseline, but it ignores cross-asset dependence. Portfolio variance is wᵀΣw. Estimating and inverting a noisy covariance matrix can create unstable allocations, so compare optimisation with simple baselines and inspect sensitivity to estimation choices.</p>
+<h2>Inspect paths and tails</h2><p>Maximum drawdown measures the largest decline from a previous equity peak over the observed path. It is sensitive to the sample and marking frequency. Include the initial capital in the path so a loss at the first evaluation point is counted.</p>
+<p>Historical VaR is a quantile of a loss sample. Expected shortfall averages losses in the selected tail. The workbench uses loss = −return: positive values represent losses and negative values represent gains. Neither estimate is a guarantee about the next extreme event.</p>
+<h2>Align weights with available information</h2><pre><code>from qtlib.portfolio import inverse_volatility_weights
+
+# training_returns ends BEFORE the next investment decision.
+weights = inverse_volatility_weights(
+    training_returns,
+    max_asset_weight=0.20,
+)
+cash_weight = 1.0 - weights.sum()</code></pre>
+<p>Estimate risk on a historical window, decide the weights and apply them to later outcomes. Account for turnover when moving between allocations. Report the rebalancing convention and what happens when data is missing.</p>
+<h2>Use a portfolio challenge as a lab</h2><p>Compare an equal-weight allocation with a concentrated one in Tomorrow Markets. Use the same observed window and inspect return, drawdown and cash. Historical and daily challenges have their own stated rules; record those rules alongside the result.</p>
