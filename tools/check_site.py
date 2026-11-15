@@ -18,7 +18,7 @@ class Page(HTMLParser):
             if key in attrs:self.links.append(attrs[key])
 errors=[]
 parsed={}
-for path in ROOT.glob("*.html"):
+for path in sorted(ROOT.glob("*.html"))+sorted((ROOT/"CTRL").rglob("*.html")):
     p=Page();p.feed(path.read_text());parsed[path]=p
     if p.h1!=1 or p.title!=1:errors.append(f"{path.name}: requires one h1/title")
     if len(p.ids)!=len(set(p.ids)):errors.append(f"{path.name}: duplicate IDs")
@@ -26,7 +26,8 @@ for path,p in parsed.items():
     for value in p.links:
         u=urlsplit(value)
         if u.scheme or u.netloc:continue
-        target=(path.parent/unquote(u.path)).resolve() if u.path else path.resolve()
+        target=(ROOT/unquote(u.path).lstrip("/") if u.path.startswith("/") else path.parent/unquote(u.path)).resolve() if u.path else path.resolve()
+        if target.is_dir():target=target/"index.html"
         if not target.is_relative_to(ROOT):errors.append(f"{path.name}: link escapes site: {value}")
         elif not target.exists():errors.append(f"{path.name}: missing {value}")
         elif u.fragment and target.suffix==".html":
@@ -40,7 +41,10 @@ for key in ["repositories","code","datasets","papers","competitions","solutions"
             if not item.get(field):continue
             value=item[field]
             if "example" in urlsplit(value).netloc:errors.append(f"Example URL in {key}: {value}")
-            if not urlsplit(value).scheme and not (ROOT/unquote(urlsplit(value).path)).is_file():errors.append(f"Missing catalogue target: {value}")
+            if not urlsplit(value).scheme:
+                target=ROOT/unquote(urlsplit(value).path)
+                if target.is_dir():target=target/"index.html"
+                if not target.is_file():errors.append(f"Missing catalogue target: {value}")
 if errors:
     print("\n".join(errors));sys.exit(1)
 print(f"PASS: {len(parsed)} pages; local assets, links, anchors, unique IDs and catalogue targets.")

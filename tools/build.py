@@ -128,7 +128,8 @@ for name in intro:
         status=item.get("status","Source")
         tags=" ".join(item.get("tags",[]))
         search=" ".join(str(item.get(k,"")) for k in ["title","name","description","category","detail","status"])+" "+tags
-        body+=f'<article class="catalogue-item" data-entry data-category="{esc(cat)}" data-search="{esc(search.lower())}"><span class="tag'+(' draft' if 'draft' in status.lower() else ' source' if 'Historical' in status else '')+'">'+esc(status)+'</span><h2>'+esc(title)+'</h2><p>'+esc(desc)+'</p>'
+        heading=a(item["local_url"],title) if item.get("local_url") else esc(title)
+        body+=f'<article class="catalogue-item" data-entry data-category="{esc(cat)}" data-search="{esc(search.lower())}"><span class="tag'+(' draft' if 'draft' in status.lower() else ' source' if 'Historical' in status else '')+'">'+esc(status)+'</span><h2>'+heading+'</h2><p>'+esc(desc)+'</p>'
         if item.get("detail"):body+='<p class="data-file">'+esc(item["detail"])+'</p>'
         body+='<div class="item-links">'
         body+=a(item.get("source_url",item.get("url")),"Open source ↗")
@@ -139,7 +140,7 @@ for name in intro:
         if name=="repositories":body+='<div class="meta"><span>'+esc(tags)+'</span><span>Snapshot '+esc(item["snapshot_date"])+' · '+esc(item["commit"][:8])+'</span></div>'
         if item.get("attribution"):body+='<p class="index-note">'+esc(item["attribution"])+'</p>'
         body+='</article>'
-        search_entries.append({"title":title,"category":name.title(),"url":item.get("source_url",item.get("url")),"text":desc+" "+search})
+        search_entries.append({"title":title,"category":name.title(),"url":item.get("local_url",item.get("source_url",item.get("url"))),"text":desc+" "+search})
     body+='<p class="empty" data-filter-empty hidden>No entries match those filters. Try another term or collection.</p></section>'
     save(name,intro[name][0],summary,body,category="Catalogue",index=False)
 
@@ -162,17 +163,29 @@ foreword=ROOT/"content/foreword.html"
 if foreword.exists():
     save("foreword","The original foreword.","A personal essay preserved from Tomorrow Quant Archive.",article_head("Historical archive","The original foreword.","A personal essay preserved from Tomorrow Quant Archive, separate from the edited learning material.")+'<article class="prose">'+foreword.read_text()+'</article>',"Historical essay",index=False)
 save("404","That page is not on this shelf.","Find a lesson, catalogue or repository.",article_head("404","That page is not on this shelf.","Browse the learning routes or search the Library.")+'<div class="actions"><a class="button" href="index.html">Back to the reading room →</a><a class="text-link" href="guide.html">Learning routes →</a></div>',index=False)
+# CTRL is hand-authored HTML. Preserve its pages, and discover them for search
+# and the sitemap so future rebuilds do not lose this part of the Library.
+static_urls=[]
+for path in sorted((ROOT/"CTRL").rglob("index.html")):
+    html=path.read_text()
+    title=unescape(re.search(r"<title>(.*?)</title>",html,re.S).group(1)).removesuffix(" | Tomorrow Library")
+    desc=unescape(re.search(r'<meta name="description" content="([^"]*)"',html).group(1))
+    body=re.search(r"<main\b[^>]*>(.*?)</main>",html,re.S).group(1)
+    text=unescape(re.sub(r"\s+"," ",re.sub("<[^>]+>"," ",body))).strip()
+    href=path.parent.relative_to(ROOT).as_posix()+"/"
+    static_urls.append(href)
+    search_entries.append({"title":title,"category":"IMC Prosperity / CTRL","url":href,"text":desc+" "+text[:8000]})
 # Global search also indexes catalogue pages themselves.
 for slug in list(intro)+["data"]:
     search_entries.insert(0,{"title":intro[slug][0] if slug in intro else "Data catalogue","category":"Catalogue","url":slug+".html","text":intro[slug][1] if slug in intro else "Download original prices trades observations datasets"})
 (ROOT/"assets/search-index.js").write_text("window.LIBRARY_SEARCH = "+json.dumps(search_entries,ensure_ascii=False).replace("<",r"\u003c")+";\n")
 (ROOT/".nojekyll").write_text("")
 (ROOT/"robots.txt").write_text("User-agent: *\nAllow: /\nSitemap: "+site["base_url"]+"sitemap.xml\n")
-(ROOT/"sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join('<url><loc>'+esc(site["base_url"]+('' if slug=='index' else slug+'.html'))+'</loc></url>' for slug in pages if slug!="404")+'</urlset>\n')
+(ROOT/"sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join('<url><loc>'+esc(site["base_url"]+('' if slug=='index' else slug+'.html'))+'</loc></url>' for slug in pages if slug!="404")+''.join('<url><loc>'+esc(site["base_url"]+href)+'</loc></url>' for href in static_urls)+'</urlset>\n')
 (ROOT/"workbench/data-catalogue.json").write_text(json.dumps(datasets,indent=2,ensure_ascii=False)+"\n")
 (ROOT/"downloads").mkdir(exist_ok=True)
 with zipfile.ZipFile(ROOT/"downloads/tomorrow-quant-workbench.zip","w",zipfile.ZIP_DEFLATED) as archive:
     for path in sorted((ROOT/"workbench").rglob("*")):
         if path.is_file() and not any(part in {"__pycache__","results",".venv","data"} for part in path.relative_to(ROOT/"workbench").parts) and path.suffix!=".pyc":
             archive.write(path,Path("tomorrow-quant-workbench")/path.relative_to(ROOT/"workbench"))
-print(f"Built {len(pages)} pages, {len(search_entries)} search entries and the workbench download.")
+print(f"Built {len(pages)} pages, indexed {len(static_urls)} static CTRL pages, {len(search_entries)} search entries and the workbench download.")
