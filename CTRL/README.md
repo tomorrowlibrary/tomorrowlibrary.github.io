@@ -1,83 +1,80 @@
 # Ctrl+Alt+DefeatTheMarket
 
-The HTML/CSS foundation for Tomorrow Library's IMC Prosperity guide.
+Tomorrow Library's IMC Prosperity guide. Version 2 gives CTRL its own terminal design, separate from the rest of the Library: a dark trading-terminal look built around the vocabulary of order books, ticks and fills.
 
-## Install this package
+## Pages
 
-Copy the contents of the ZIP into the root of `tomorrowlibrary.github.io`, preserving the folder structure. Merge the files with the existing repository; this is an addition to the site, not a complete replacement. The pages use the existing `assets/site.css` and `assets/wave-mark.svg`.
+| Page | File | Public path | How it is made |
+| --- | --- | --- | --- |
+| Guide overview | `CTRL/index.html` | `/CTRL/` | Hand-authored; the data matrix region is generated |
+| Historical data | `CTRL/datasets/index.html` | `/CTRL/datasets/` | Generated |
+| Known alphas | `CTRL/alphas/index.html` | `/CTRL/alphas/` | Generated from `CTRL/alphas/alphas.json` |
+| Research studies | `CTRL/research/index.html` | `/CTRL/research/` | Generated from `CTRL/research/studies.json` |
+| Chapter 01, Data and research | `CTRL/data/index.html` | `/CTRL/data/` | Hand-authored |
+| Chapter 02, Market dynamics and alpha | `CTRL/market-dynamics/index.html` | `/CTRL/market-dynamics/` | Hand-authored |
+| Chapter 03, Inventory, portfolio and risk | `CTRL/inventory-risk/index.html` | `/CTRL/inventory-risk/` | Hand-authored |
+| Chapter 04, Execution, orders and backtests | `CTRL/execution-backtesting/index.html` | `/CTRL/execution-backtesting/` | Hand-authored |
+| Styles | `assets/ctrl.css` | — | CTRL pages no longer load `assets/site.css` |
+| Hero film, keycaps, copy buttons | `assets/ctrl.js` | — | No dependencies |
 
-The generated HTML is ready to serve. No build is necessary to view it. The included catalogue, search index, sitemap and build/check updates keep this addition integrated with the existing site.
+## The overview page, top to bottom
 
-When these files are published through your existing GitHub Pages workflow, the route will be:
+1. **The film.** A small simulated exchange runs one Prosperity-style timestep on repeat: makers quote, takers trade, your bot takes mispriced orders and quotes inside the spread, more takers arrive, the book clears. Three regimes (fixed fair value, slow drift, shocks) cycle every 42 seconds or on demand. It pauses off-screen, stays still for readers who prefer reduced motion, and the caption explains it without JavaScript. The order flow is synthetic.
+2. **Ctrl + Alt + DefeatTheMarket.** The keycaps press themselves once when the title scrolls into view, the wordmark decodes, and the keycaps react to the reader's own Ctrl and Alt keys.
+3. **Getting started with Prosperity 5.** Six steps; two are marked as waiting for IMC's Prosperity 5 documentation. Update them when the new wiki is published (the section has an HTML comment).
+4. **What is IMC Prosperity?** The quick orientation, now with the Prosperity 4 round structure.
+5. **Build the foundations.** The four chapters.
+6. **Start exploring.** The resource shelf: historical data (a matrix of every edition and round), earlier approaches, known alphas and research studies.
 
-**Homepage → Compete → IMC Prosperity → `/CTRL/`**
+The "More ways to learn" block is gone from every page.
 
-Both the IMC Prosperity heading and its Preparation guide link open CTRL. The existing `/ctrl.html` redirects to `/CTRL/` and includes a visible fallback link. GitHub Pages accepts `/CTRL` and redirects to `/CTRL/`.
+## Rebuilding the generated pages
 
-| Page | File to edit | Public path |
-| --- | --- | --- |
-| Main guide | `CTRL/index.html` | `/CTRL/` |
-| Data and research | `CTRL/data/index.html` | `/CTRL/data/` |
-| Market dynamics and alpha | `CTRL/market-dynamics/index.html` | `/CTRL/market-dynamics/` |
-| Inventory, portfolio and risk | `CTRL/inventory-risk/index.html` | `/CTRL/inventory-risk/` |
-| Execution, orders and backtests | `CTRL/execution-backtesting/index.html` | `/CTRL/execution-backtesting/` |
-| Shared guide styles | `assets/ctrl.css` | — |
+```sh
+python tools/ctrl/build_ctrl.py   # data terminal, known alphas, research log, landing matrix
+python tools/build.py             # Library pages, search index and sitemap (picks up the CTRL pages)
+python tools/check_site.py        # links, anchors, IDs
+```
 
-## Scope of this version
+`python tools/ctrl/build_ctrl.py --chapters` also re-wraps the four chapter pages in the shared CTRL header, sidebar and footer. Only needed if the shell in `build_ctrl.py` changes.
 
-- A landing page, basic competition overview and four chapter outlines.
-- Desktop and mobile navigation, breadcrumbs, previous/next chapter links and native HTML expandable topics.
-- Links to relevant resources already available in Tomorrow Library.
-- Text-only notices for future books, videos, visual explanations and Python practice material. There are no dummy download links.
-- A clearly labelled Prosperity 5 getting-started notice. Edition-specific setup, dates, products, limits and submission instructions are intentionally deferred.
+To add a known alpha, add an object to `CTRL/alphas/alphas.json` and rebuild. The `seen` field takes one entry per edition; an empty string leaves that edition dark and a value starting with `not found` strikes it through.
 
-The new guide requires no JavaScript, framework, package installation or server-side code. The Python changes are limited to the site's existing build and link-check utilities; they are not trading code or notebooks. The existing homepage and shared styles are unchanged.
+## Data profile and studies
 
-## Continue authoring
+`CTRL/research/code/ctrl_research.py` produces `CTRL/datasets/profile.json` and `CTRL/research/studies.json` from two public checkouts:
 
-Edit the five HTML files directly. They are hand-authored static pages and are not overwritten by `tools/build.py`. HTML comments identify chapter content, practice and future resource areas. Keep titles and descriptions up to date: the build reads them when adding these pages to search and the sitemap.
+- [MarkBrezina/Ctrl-Alt-DefeatTheMarket](https://github.com/MarkBrezina/Ctrl-Alt-DefeatTheMarket) at `79108e33` (Prosperity 1 to 3, and Prosperity 4 round 1)
+- [Xeeshan85/imc-prosperity-4-backtester](https://github.com/Xeeshan85/imc-prosperity-4-backtester) at `40671cab` (Prosperity 4 tutorial and rounds 2 to 5, community-hosted)
 
-Use a consistent header and navigation when adding chapters. For future resource cards, record the author or creator, a real source URL and the purpose of the reference. Add notebook download links only when the files exist, and identify the relevant dataset and historical edition. Add text alternatives and reduced-motion behaviour when visual explanations are implemented.
+```sh
+python CTRL/research/code/ctrl_research.py --library Ctrl-Alt-DefeatTheMarket \
+  --p4 imc-prosperity-4-backtester/prosperity4bt/resources --out results/
+```
 
-The `#prosperity-5` section on `CTRL/index.html` is the current place to replace or extend when the next competition starts. No getting-started chapter is claimed to be available yet.
+Copy the two JSON files into place, then run `build_ctrl.py`.
 
-## Existing-site integration
+Findings worth knowing while editing:
+
+- The Library catalogue's "Prosperity guide" round 1 files are Prosperity 4 round 1 data (same git blob hashes as the public Prosperity 4 bundle).
+- The Prosperity 2 round 2 files named `prices_round_2_day_*.csv` hold ORCHIDS observations, not an order book.
+- Some days are re-released in later rounds; the profile marks every duplicate.
+- The fixed-value product's order book is identical in the round 1 data of Prosperity 1, 2 and 3 (study 001).
+
+## Integration with the rest of the site
 
 | File | Change |
 | --- | --- |
-| `catalogue/competitions.json` | Points IMC Prosperity to `CTRL/`. |
-| `tools/build.py` | Links local competition headings to their guides; discovers CTRL HTML pages for search and the sitemap. |
-| `tools/check_site.py` | Checks nested CTRL pages and resolves directory links to `index.html`. |
-| `competitions.html` | Ready-to-serve updated IMC listing. |
-| `assets/search-index.js` | Adds the five guide pages and points the IMC search result to CTRL. |
-| `sitemap.xml` | Adds the five canonical CTRL paths. |
-| `ctrl.html` | Replaces the previously empty file with a redirect and fallback. |
+| `tools/check_site.py` | Ignores `<title>` elements inside inline SVG charts when counting page titles, and reports nested paths in full. |
+| `assets/search-index.js`, `sitemap.xml` | Regenerated by `tools/build.py`; now include the data, alphas and research pages. |
+| `ctrl.html` | The redirect page uses the new CTRL styles. |
 
-After content changes, run the repository's normal build:
-
-```sh
-python tools/build.py
-python tools/check_site.py
-```
-
-To preview the merged repository locally:
-
-```sh
-python -m http.server 8000
-```
-
-Then open `http://localhost:8000/CTRL/`. Serve the repository root so the existing resource links and shared styles resolve correctly.
+The Library's homepage, shared styles and catalogue are unchanged.
 
 ## Verification
 
-Prepared against main commit `37f9d4aa936a61037b98acbbca790fc1fd4457e2` on 15 November 2026.
+Prepared on 16 November 2026 against `main` at `ace7e78`.
 
-- The build completes and discovers all five CTRL pages.
-- The new pages, competition links, local assets, fragment targets and IDs pass the repository's checks.
-- The homepage → Compete → IMC Prosperity route, all four chapter pages, expandable topics, mobile chapter menu and search integration were checked in a browser.
-- Desktop, 375px mobile and 768px tablet layouts were inspected; the mobile and tablet pages had no horizontal overflow.
-- The full-site checker still reports 13 pre-existing missing assets or links in the unrelated `approach.html`. Compared with the original checkout, this change introduces no additional errors and fixes the previously blank `ctrl.html` page.
-
-## Competition overview source
-
-The short orientation describes the general structure of prior editions. It links to [IMC's official Prosperity page](https://prosperity.imc.com/), checked on 15 November 2026. It does not treat prior-edition rules as Prosperity 5 rules.
+- `tools/build.py` completes and indexes eight CTRL pages; `tools/check_site.py` reports only the 13 pre-existing errors in the unrelated `approach.html`.
+- Pages were checked in Chrome at 1440 × 900, 820 × 1180 and 390 × 844, with and without reduced motion.
+- Every number on the data and research pages comes from the script above. Statements about past editions link to their sources; Prosperity 5 dates and rules are not stated because IMC had not published them.
