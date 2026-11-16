@@ -8,20 +8,23 @@ from urllib.parse import unquote,urlsplit
 ROOT=Path(__file__).resolve().parents[1]
 class Page(HTMLParser):
     def __init__(self):
-        super().__init__(convert_charrefs=True);self.links=[];self.ids=[];self.h1=0;self.title=0
+        super().__init__(convert_charrefs=True);self.links=[];self.ids=[];self.h1=0;self.title=0;self.svg=0
     def handle_starttag(self,tag,attrs):
         attrs=dict(attrs)
         if attrs.get("id"):self.ids.append(attrs["id"])
+        if tag=="svg":self.svg+=1
         if tag=="h1":self.h1+=1
-        if tag=="title":self.title+=1
+        if tag=="title" and not self.svg:self.title+=1  # <title> inside inline SVG labels a chart, not the page
         for key in ["href","src"]:
             if key in attrs:self.links.append(attrs[key])
+    def handle_endtag(self,tag):
+        if tag=="svg" and self.svg:self.svg-=1
 errors=[]
 parsed={}
 for path in sorted(ROOT.glob("*.html"))+sorted((ROOT/"CTRL").rglob("*.html")):
     p=Page();p.feed(path.read_text());parsed[path]=p
-    if p.h1!=1 or p.title!=1:errors.append(f"{path.name}: requires one h1/title")
-    if len(p.ids)!=len(set(p.ids)):errors.append(f"{path.name}: duplicate IDs")
+    if p.h1!=1 or p.title!=1:errors.append(f"{path.relative_to(ROOT)}: requires one h1/title")
+    if len(p.ids)!=len(set(p.ids)):errors.append(f"{path.relative_to(ROOT)}: duplicate IDs")
 for path,p in parsed.items():
     for value in p.links:
         u=urlsplit(value)
